@@ -31,7 +31,7 @@ Heroku 提供免费账号，具体限制如下：
 1. Fork 本项目到个人账号下
 ![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/4-min.png)
 
-2. Clone 本项目：`git clone https://github.com/521xueweihan/shadowsocks-heroku.git`
+2. Clone或者[下载](https://github.com/ovsoil/shadowsocks-for-heroku/archive/master.zip) 本项目：`git clone https://github.com/ovsoil/shadowsocks-for-heroku.git`
 
 ### 二、部署
 heroku 在创建项目的时候可以，通过关联 GitHub 账号，直接部署 GitHub 账号下的项目。具体步骤如下：
@@ -65,8 +65,9 @@ Setting 页面 ——> Reveal Config Vars，设置参数如下图：
 - camellia-128-cfb
 
 ### 四、启动本地 client：
-1. **进到本项目目录**，执行`npm install` 命令，安装依赖的库（如没有 npm ，请自行安装，[npm安装依赖慢](http://www.cnblogs.com/xueweihan/p/5491730.html)）
-2. 启动本地 client，`node local.js -s 你的app名称.herokuapp.com -l 1080 -m 设置的加密算法 -k 设置的密码 -r 80`
+1. 安装nodejs
+2. **进到本项目目录**(Windows安装nodejs后，用Node.js command prompt进入项目目录），执行`npm install` 命令，安装依赖的库（如没有 npm ，请自行安装，[npm安装依赖慢](http://www.cnblogs.com/xueweihan/p/5491730.html)）
+3. 启动本地 client，`node local.js -s 你的app名称.herokuapp.com -l 1080 -m 设置的加密算法 -k 设置的密码 -r 80`
 
 ### 五、最后
 1. 下载：Chrome 浏览器[SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.21/SwitchyOmega.crx)，如果下载地址失效，可以在本项目下的 download 下找到 SwitchyOmega.crx
