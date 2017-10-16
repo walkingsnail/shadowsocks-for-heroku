@@ -1,78 +1,86 @@
-> Fork 于 [shadowsocks-heroku](https://github.com/mrluanma/shadowsocks-heroku) 项目
+> Fork from [shadowsocks-heroku](https://github.com/mrluanma/shadowsocks-heroku)
 
 # shadowsocks-heroku
-[Heroku](https://www.heroku.com/) 是一个支持多种编程语言的云平台即服务，shadowsocks-heroku 则是可部署在 Heroku 平台的ss服务。
-和 [shadowsocks](https://github.com/clowwindy/shadowsocks) 不同的是 shadowsocks-heroku 使用的 WebSocket 代替原本的 sockets。
+[Heroku](https://www.heroku.com/) 提供免费的云服务，我们可以用它来搭建自己的shaowsocks服务.
+shadowsocks-heroku 使用WeSocket代替[shadowsocks](https://github.com/clowwindy/shadowsocks) 的sockets。
 
-跟着下面的步骤，预计 **十分钟后**，你就可以 Google 了👻。
+完成下面的步骤，你就可以用 Google 了👻。
 
-### 如果遇到问题
-请下面列表中寻找解决办法，新问题欢迎[创建issue](https://github.com/521xueweihan/shadowsocks-heroku/issues/new)进行讨论。
-- [Error: Cannot find module './merge_sort'](https://github.com/521xueweihan/shadowsocks-heroku/issues/1)
+### 准备
 
-### 一、准备
-#### 1.注册 Heroku 帐号
-Heroku 提供免费账号，具体限制如下：
-- Run apps for free using your monthly pool of free dyno hours
-- Unverified accounts: receive a pool of 550 free dyno hours
-- Verified accounts: receive an additional 450 free dyno hours
-- Dyno hours can be shared across any of your free apps
-- 1 web dyno/1 worker dyno/1 one-off dyno maximum per app
-- 512 MB RAM per dyno
-- Free apps sleep automatically after 30 mins of inactivity to conserve your dyno hours
-- Free apps wake automatically when a web request is received
-- Access to the Heroku Dashboard and Heroku CLI for app management
-- Custom domains for every free app (with verified account)
-- Up to 5 free apps (unverified) or 100 (verified)
+1. 需要一个heroku账号。
+Heroku 提供免费账号, 虽然有一些限制，但用作VPS是够了，注册地址：https://signup.heroku.com/
 
-用作 VPS 是够了，注册地址：https://signup.heroku.com/
+2. 需要一个github账号。
+Github 是一个代码库 注册地址: https://github.com
 
-#### 2.Fork本项目
-1. Fork 本项目到个人账号下
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/4-min.png)
+3. Fork 本项目到个人账号下。
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/fork-and-download.png)
 
-2. Clone或者[下载](https://github.com/ovsoil/shadowsocks-for-heroku/archive/master.zip) 本项目：`git clone https://github.com/ovsoil/shadowsocks-for-heroku.git`
+### 部署服务
 
-### 二、部署
-heroku 在创建项目的时候可以，通过关联 GitHub 账号，直接部署 GitHub 账号下的项目。具体步骤如下：
+heroku 可以通过关联 GitHub 账号，直接部署 GitHub 账号下的项目到云上：
 
 1. 登陆 Heroku 帐号，后进入 Dashboard ——> Create New App ——> 输入 App Name
+    App Name 会用到后面启动client的命令里面
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/create-app.png)
 2. 完成上一步后，会跳转到 Deploy 页面，找到 Deployment method 选择 GitHub 关联上自己的 GitHub 帐号。
-3. 关联上 shadowsocks-heroku 项目，如下图所示：
-    ![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/1-min.png)
+
+3. 关联上 shadowsocks-for-heroku 项目，如下图所示：
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/connect-github.png)
 4. 点击 Deploy Branch，部署成功如下图：
-    ![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/2-min.png)
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/deploy-from-github.png)
 
-### 三、设置加密算法和密码
-Setting 页面 ——> Reveal Config Vars，设置参数如下图：
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/3-min.png)
+### 设置加密算法和密码
 
-**支持的加密算法类型如下：**  
-- rc4
+进入Setting 页面 ——> Reveal Config Vars，设置参数如下图：
+设置一个密码，并选择一个加密算法，记住这两个，后面启动client的命令会用到。
+可以使用以下加密算法：
 - rc4-md5
-- table
-- bf-cfb
-- des-cfb
-- rc2-cfb
-- idea-cfb
-- seed-cfb
-- cast5-cfb
-- aes-128-cfb
-- aes-192-cfb
 - aes-256-cfb
 - camellia-256-cfb
-- camellia-192-cfb
-- camellia-128-cfb
+![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/config-vars.png)
 
-### 四、启动本地 client：
+
+### 安装本地client：
+
 1. 安装nodejs
-2. **进到本项目目录**(Windows安装nodejs后，用Node.js command prompt进入项目目录），执行`npm install` 命令，安装依赖的库（如没有 npm ，请自行安装，[npm安装依赖慢](http://www.cnblogs.com/xueweihan/p/5491730.html)）
-3. 启动本地 client，`node local.js -s 你的app名称.herokuapp.com -l 1080 -m 设置的加密算法 -k 设置的密码 -r 80`
+    * Windows:
+        下载nodejs并安装。[下载页面](http://nodejs.cn/download/)
 
-### 五、最后
-1. 下载：Chrome 浏览器[SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.21/SwitchyOmega.crx)，如果下载地址失效，可以在本项目下的 download 下找到 SwitchyOmega.crx
-2. 安装：打开浏览器的扩展程序页面 chrome://extensions 。把SwitchyOmega.crx文件拖放到浏览器扩展程序页面安装。
+    * Mac:
+        打开Terminal (command + space, 输入terminal)
+        安装brew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+        安装nodejs: `brew install node`
+
+2. [下载](https://github.com/ovsoil/shadowsocks-for-heroku/archive/master.zip) 本项目，并解压到一个指定目录。
+建议解压到用户目录下(Mac也是类似的解压到与`下载`等目录同级的目录)，如下图所示：
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/unpack.png)
+
+3. 安装并启动本地client, 先**通过命令行进入解压目录**
+    * Windows:
+        通过开始菜单打开Node.js command prompt (Nodejs安装完成之后，点击Windows徽标键打开开始菜单，输入node，一般第一个搜索匹配项就是)
+        进入解压目录：`cd shadowsocks-for-heroku-master` (如果是在按照上面的说明解压到用户目录)
+        执行`npm install`, 安装依赖的库
+    * Mac:
+        打开Terminal (command + space, 输入terminal)
+        `cd shadowsocks-for-heroku-master`
+
+4. 输入以下命令启动本地代理
+   `node local.js -s App名称.herokuapp.com -l 1080 -m 加密算法 -k 密码 -r 80`
+   或者把`start_proxy.bat`(Windows)或者`start_proxy.sh`(Mac)里面的命令修改一下，以后就可以通过`./start_proxy.bat`或者`./start_proxy.sh`命令启动本地代理了。
+
+**全部配置完成之后，每次开机只要执行以上3，4两步，就可以打开Chrome上Google了。**
+
+### 启动本地代理并配置Chrome浏览器
+
+1. 下载Chrome浏览器扩展[SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.21/SwitchyOmega.crx)
+
+2. 安装SwitchyOmega：打开浏览器的扩展程序页面 `chrome://extensions`, 把SwitchyOmega.crx文件拖放到浏览器扩展程序页面安装。
+
 3. 配置：SwitchyOmega：`代理协议：SOCKS5 代理服务器：127.0.0.1 代理端口：1080`，如下图：
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/5-min.png)
-4. 选择代理  
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/6-min.png)
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/proxy.png)
+4. 配置自动切换代理
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/auto-switch.png)
+5. Let's Go 👻。
+    ![](https://github.com/ovsoil/shadowsocks-for-heroku/blob/master/img/google.png)
