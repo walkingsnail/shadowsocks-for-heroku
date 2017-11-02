@@ -6,7 +6,11 @@ shadowsocks-heroku 使用WeSocket代替[shadowsocks](https://github.com/clowwind
 
 完成下面的步骤，你就可以用 Google 了👻。
 
+*如果你打不开[这个](http://shadowsocks-for-heroku.herokuapp.com/)链接，那下面的方法可能不适合你的网络=_=。*
+
 ### 一. 准备
+
+*如果你无法访问下面的注册地址，也可以直接跳到第四步，先试用我已经部署好的SS服务*
 
 1. 需要一个heroku账号。
 Heroku 提供免费账号, 虽然有一些限制，但用作VPS是够了，注册地址：https://signup.heroku.com/
@@ -50,7 +54,7 @@ heroku 可以通过关联 GitHub 账号，直接部署 GitHub 账号下的项目
 
     * Mac:
         打开Terminal (command + space, 输入terminal)
-        安装brew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+        安装brew: `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
         安装nodejs: `brew install node`
 
 2. [下载](https://github.com/ovsoil/shadowsocks-for-heroku/archive/master.zip) 本项目，并解压到一个指定目录。
@@ -72,7 +76,8 @@ heroku 可以通过关联 GitHub 账号，直接部署 GitHub 账号下的项目
     ```bash
        node local.js -s App名称.herokuapp.com -l 1080 -m 加密算法 -k 密码 -r 80`
     ```
-   为了更方便启动，可以把`start_proxy.bat`(Windows)或者`start_proxy.sh`(Mac)里面的命令修改一下，以后就可以通过`./start_proxy.bat`或者`./start_proxy.sh`命令启动本地代理了。
+   为了更方便启动，可以把`start_proxy.bat`(Windows)或者`start_proxy.sh`(Mac)里面的命令根据你的信息修改一下，以后就可以通过`./start_proxy.bat`或者`./start_proxy.sh`命令启动本地代理了。
+    * 如果是试用我预先部署好的SS服务，可以直接执行已有的`start_proxy`脚本。
 
 **全部配置完成之后，每次开机只要执行以上3，4两步，就可以打开Chrome上Google了。**
 
