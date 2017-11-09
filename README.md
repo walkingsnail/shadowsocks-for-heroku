@@ -66,7 +66,7 @@ Setting 页面 ——> Reveal Config Vars，设置参数如下图：
 
 ### 四、启动本地 client：
 1. 安装nodejs
-2. **进到本项目目录**(Windows安装nodejs后，用Node.js command prompt进入项目目录），执行`npm install` 命令，安装依赖的库（如没有 npm ，请自行安装，[npm安装依赖慢](http://www.cnblogs.com/xueweihan/p/5491730.html)）
+2. **进到本项目目录**(Windows安装nodejs后，用Node.js command prompt进入项目目录），**执行`npm install` 命令**，安装依赖的库（如没有 npm ，请自行安装，[npm安装依赖慢](http://www.cnblogs.com/xueweihan/p/5491730.html)）
 3. 启动本地 client，`node local.js -s 你的app名称.herokuapp.com -l 1080 -m 设置的加密算法 -k 设置的密码 -r 80`
 
 ### 五、安装SwitchyOmega插件
