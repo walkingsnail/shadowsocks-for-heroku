@@ -70,34 +70,15 @@ Setting 页面 ——> Reveal Config Vars，设置参数如下图：
 3. 启动本地 client，`node local.js -s 你的app名称.herokuapp.com -l 1080 -m 设置的加密算法 -k 设置的密码 -r 80`
 
 ### 五、安装SwitchyOmega插件
-
 1. 下载
 
 Chrome 浏览器[SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.21/SwitchyOmega.crx)，如果下载地址失效，可以在本项目下的 download 下找到 SwitchyOmega.crx
+
 2. 安装
+
 打开浏览器的扩展程序页面 chrome://extensions 。把SwitchyOmega.crx文件拖放到浏览器扩展程序页面安装。
+
 3. 配置代理
-SwitchyOmega：`代理协议：SOCKS5 代理服务器：127.0.0.1 代理端口：1080`，如下图：
-
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/5-min.png)
-
-4. 选择代理
-
-![](https://github.com/521xueweihan/shadowsocks-heroku/blob/master/img/6-min.png)
-
-5. 设置auto switch
-
-在Rule List URL 输入 https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
-
-![](https://github.com/LarryX/shadowsocks-for-heroku/blob/master/img/7-min.png)
-=======
-1. 下载
-
-Chrome 浏览器[SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.21/SwitchyOmega.crx)，如果下载地址失效，可以在本项目下的 download 下找到 SwitchyOmega.crx
-2. 安装
-
-打开浏览器的扩展程序页面 chrome://extensions 。把SwitchyOmega.crx文件拖放到浏览器扩展程序页面安装。
-3. 配置
 
 SwitchyOmega：`代理协议：SOCKS5 代理服务器：127.0.0.1 代理端口：1080`，如下图：
 
