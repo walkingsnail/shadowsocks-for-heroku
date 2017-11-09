@@ -90,6 +90,8 @@ SwitchyOmega：`代理协议：SOCKS5 代理服务器：127.0.0.1 代理端口�
 
 5. 设置auto switch
 
+如果想根据网址自动选择通过shadowsocks代理，可以配置auto switch。
+
 在Rule List URL 输入 https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
 
 ![](https://github.com/LarryX/shadowsocks-for-heroku/blob/master/img/7-min.png)
