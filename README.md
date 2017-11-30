@@ -1,5 +1,5 @@
 
-# httpks://ijuniorfu.github.io/2017/04/20/使用heroku搭建shadowsocks/
+# https://ijuniorfu.github.io/2017/04/20/使用heroku搭建shadowsocks/
 
 > Fork from [shadowsocks-heroku](https://github.com/mrluanma/shadowsocks-heroku)
 
